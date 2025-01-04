@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """an algrathem for unlocking boxes"""
 
+
 def canUnlockAll(boxes):
     """Determines if all boxes can be opened."""
     n = len(boxes)
