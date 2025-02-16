@@ -6,6 +6,9 @@ import sys
 
 
 def print_msg(codes, file_size):
+    """
+    a function that pars stdin
+    """
     print("File size: {}".format(file_size))
     for key, val in sorted(codes.items()):
         if val != 0:
