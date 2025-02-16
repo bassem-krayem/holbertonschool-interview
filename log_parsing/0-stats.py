@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import sys
+
 """
     A script that reads stdin line by line and computes metrics
     about HTTP status codes and the total file size.
@@ -6,7 +8,6 @@
     status codes (200, 301, 400, 401, 403, 404, 405, and 500)
     in a sorted order.
 """
-import sys
 
 
 def print_msg(codes, file_size):
