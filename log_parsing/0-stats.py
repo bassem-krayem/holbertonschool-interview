@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 import sys
+"""
+a script that pars a stdin
+"""
 
 
 def print_msg(codes, file_size):
