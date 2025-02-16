@@ -1,25 +1,8 @@
 #!/usr/bin/python3
 import sys
 
-"""
-    A script that reads stdin line by line and computes metrics
-    about HTTP status codes and the total file size.
-    It outputs the total file size and counts of various HTTP
-    status codes (200, 301, 400, 401, 403, 404, 405, and 500)
-    in a sorted order.
-"""
-
 
 def print_msg(codes, file_size):
-    """
-    A function that prints the
-    computed metrics (file size and status code counts)
-
-    Args:
-        codes (dict): A dictionary with status
-        codes as keys and counts as values.
-        file_size (int): The total size of files processed.
-    """
     # Print the total file size
     print("File size: {}".format(file_size))
 
