@@ -1,12 +1,12 @@
 #!/usr/bin/node
 
 const id = process.argv[2];
-const url = "https://swapi-api.hbtn.io/api/films/" + id;
-const request = require("request");
+const url = 'https://swapi-api.hbtn.io/api/films/' + id;
+const request = require('request');
 
-function retrive(urlChar) {
+function retrive (urlChar) {
   return new Promise(function (resolve, reject) {
-    request(urlChar, function getChar(err2, response2, body2) {
+    request(urlChar, function getChar (err2, response2, body2) {
       if (err2) {
         reject(err2);
       } else {
@@ -16,14 +16,14 @@ function retrive(urlChar) {
   });
 }
 
-async function getlist(urlist) {
+async function getlist (urlist) {
   for (const urlChar of urlist) {
     const character = await retrive(urlChar);
     console.log(character);
   }
 }
 
-request(url, function getList(err, response, body) {
+request(url, function getList (err, response, body) {
   if (err) {
     throw err;
   } else {
