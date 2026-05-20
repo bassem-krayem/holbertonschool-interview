@@ -9,8 +9,7 @@ if len(sys.argv) != 2:
 N = sys.argv[1]
 try:
     N = int(N)
-
-except:
+except ValueError:
     print('N must be a number')
     exit(1)
 
