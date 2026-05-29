@@ -1,36 +1,35 @@
 #!/usr/bin/python3
-"""Module used to add two arrays."""
+"""Module to determine the fewest number of coins needed to meet a total."""
 
 
 def makeChange(coins, total):
-    """[Given a pile of coins of different values, determine the fewest number
-            of coins needed to meet a given amount total]
+    """Determine the fewest number of coins needed to meet a given total.
 
     Args:
-            coins ([list]): [list of the values of your the coins]
-                              The value of a coin will always be an int > 0
-            total ([type]): [description]
+        coins (list): A list of the values of the coins in your possession.
+        total (int): The target total amount.
 
     Returns:
-            c [int]: (change  [fewest number of coins needed to meet total]
+        int: Fewest number of coins needed to meet total.
+             If total is 0 or less, return 0.
+             If total cannot be met by any combination of coins, return -1.
     """
-
     if total <= 0:
         return 0
 
-    # verify coins is a valid
-    if (coins is None or len(coins) == 0):
+    if coins is None or len(coins) == 0:
         return -1
 
-    change = 0
-    my_coins = sorted(coins, reverse=True)
-    money_left = total
+    # Initialize DP array with a value greater than any possible solution
+    # (total + 1 acts as our conceptual "infinity")
+    dp = [total + 1] * (total + 1)
+    dp[0] = 0
 
-    for coin in my_coins:
-        while (money_left % coin >= 0 and money_left >= coin):
-            change += int(money_left / coin)
-            money_left = money_left % coin
+    # Fill the DP table
+    for coin in coins:
+        for i in range(coin, total + 1):
+            if dp[i - coin] + 1 < dp[i]:
+                dp[i] = dp[i - coin] + 1
 
-    change = change if money_left == 0 else -1
-
-    return change
+    # If the total index wasn't updated, it's impossible to make change
+    return dp[total] if dp[total] != total + 1 else -1
